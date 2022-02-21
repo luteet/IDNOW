@@ -1808,10 +1808,6 @@ body._popup-active {
   background-color: var(--white);
   -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  /* &._active {
-      color: var(--white);
-      background-color: var(--accent);
-  } */
 }
 
 .add-ons__tab-btn:hover {
@@ -1975,6 +1971,11 @@ body._popup-active {
 
   .add-ons__tab-btn {
     width: auto;
+  }
+
+  .add-ons__tab-btn._active {
+    color: var(--white);
+    background-color: var(--accent);
   }
 }
 

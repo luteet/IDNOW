@@ -73,6 +73,10 @@ body.addEventListener('click', function (event) {
     let slideBtn = thisTarget.closest('._slide-btn');
     if(slideBtn && window.innerWidth > 768) {
       addOnsSlider.slideTo(Number(slideBtn.dataset.slideTo), 0)
+      document.querySelectorAll('._slide-btn').forEach(thisElement => {
+        thisElement.classList.remove('_active');
+      })
+      slideBtn.classList.add('_active');
     }
     
 
