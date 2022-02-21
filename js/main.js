@@ -120,7 +120,7 @@ function resize() {
     addOnsTabSlider = new Swiper('.add-ons__tab-section--body', {
   
       spaceBetween: 15,
-      slidesPerView: 1,
+      slidesPerView: "auto",
       
       /* thumbs: {
         swiper: addOnsSlider,
