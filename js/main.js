@@ -49,9 +49,15 @@ let addOnsSlider = new Swiper('.add-ons__tab-slider', {
   fadeEffect: {
     crossFade: true
   }, */
-
+  breakpoints: {
+    768: {
+      allowTouchMove: false,
+    }
+  }
   
 });
+
+
 
 let addOnsTabSlider;
 
@@ -102,6 +108,7 @@ function resize() {
     function () {  // screen > 768
 
       if(addOnsTabSlider) addOnsTabSlider.destroy(true, true);
+      addOnsSlider.controller.control = addOnsSlider;
 
   },
   function () {  // screen < 768
@@ -111,10 +118,13 @@ function resize() {
       spaceBetween: 15,
       slidesPerView: 1,
       
-      thumbs: {
+      /* thumbs: {
         swiper: addOnsSlider,
-      }
+      } */
     });
+
+    addOnsSlider.controller.control = addOnsTabSlider;
+    addOnsTabSlider.controller.control = addOnsSlider;
 
   });
 

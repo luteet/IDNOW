@@ -1788,6 +1788,11 @@ body._popup-active {
   margin-top: 13px;
 }
 
+.add-ons__tab-item.swiper-slide-active .add-ons__tab-btn {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
 .add-ons__tab-btn {
   display: inline-block;
   width: 100%;
