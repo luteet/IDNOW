@@ -1816,7 +1816,12 @@ body._popup-active {
   color: var(--white);
 }
 
+.add-ons__tab-slider {
+  margin-top: -100px;
+}
+
 .add-ons__tab-block--body {
+  padding-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2094,6 +2099,11 @@ body._popup-active {
 
   .add-ons__tab-section--body {
     max-width: 55%;
+  }
+
+  .add-ons__tab-list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 
   .add-ons__tab-block--image {
