@@ -1766,7 +1766,7 @@ body._popup-active {
 
 .add-ons__tab-section {
   padding-top: 33px;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
 }
 
 .add-ons__tab-section--body {
@@ -1785,6 +1785,7 @@ body._popup-active {
 .add-ons__tab-item {
   /* width: 100%;
   flex: 1 1 100%; */
+  padding-bottom: 5px;
   margin-right: 13px;
   margin-top: 13px;
 }
