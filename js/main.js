@@ -45,10 +45,10 @@ let addOnsSlider = new Swiper('.add-ons__tab-slider', {
   spaceBetween: 15,
   slidesPerView: 1,
 
-  effect: 'fade',
+  /* effect: 'fade',
   fadeEffect: {
     crossFade: true
-  },
+  }, */
 
   
 });
@@ -65,7 +65,7 @@ body.addEventListener('click', function (event) {
     thisTarget = event.target;
 
     let slideBtn = thisTarget.closest('._slide-btn');
-    if(slideBtn) {
+    if(slideBtn && window.innerWidth > 768) {
       addOnsSlider.slideTo(Number(slideBtn.dataset.slideTo), 0)
     }
     
@@ -111,7 +111,9 @@ function resize() {
       spaceBetween: 15,
       slidesPerView: 1,
       
-    
+      thumbs: {
+        swiper: addOnsSlider,
+      }
     });
 
   });
