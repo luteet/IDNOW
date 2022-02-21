@@ -5,84 +5,7 @@ const body = document.querySelector('body'),
 
 
 
-    function tab(elem) {
-
-      checkTabActive = true;
-  
-      elem.closest('._tab-list').querySelectorAll('._tab-link').forEach(element => {
-          element.classList.remove('_active');
-      })
-  
-      elem.classList.add('_active');
-      
-      const tabLink = elem;
-  
-      let tabBlock, tabBlockActive, tabBlockParent;
-      
-      try {
-          tabBlock = document.querySelector(tabLink.getAttribute('href'));
-          tabBlockParent = tabBlock.parentNode;
-          
-          if(tabBlock.classList.contains('_active')) {
-              checkTabActive = false;
-              return false;
-          }
-  
-          tabBlockActive = tabBlockParent.querySelector('._tab-block._active');
-      } catch {
-          return false;
-      }
-  
-      const tabBlockList      = tabBlockParent.querySelectorAll('._tab-block');
-  
-      tabBlockParent.style.minHeight = tabBlockActive.offsetHeight + 'px';
-      
-      tabBlockActive.classList.add('_fade-out');
-  
-      setTimeout(function() {
-  
-          tabBlockList.forEach(element => {
-              element.classList.remove('_active');
-              element.classList.remove('_fade-out');
-              element.classList.remove('_fade-in');
-          });
-  
-          tabBlock.classList.add('_active');
-  
-      },200);
-  
-      setTimeout(function() {
-          tabBlock.classList.add('_fade-in');
-          
-          tabBlockParent.style.minHeight = '0px';
-  
-          checkTabActive = false;
-  
-      },400);
-  
-  }
-
-
-
-let thisTarget, checkTabActive = false;
-body.addEventListener('click', function (event) {
-
-    thisTarget = event.target;
-
-    let tabLink = thisTarget.closest('._tab-link');
-    if(tabLink) {
-      event.preventDefault();
-      if(checkTabActive == false) {
-        tab(thisTarget);
-      }
-    }
-    
-
-})
-
-
 // =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=
-
 
 let instructionInfo = new Swiper('.instruction__info', {
   
@@ -107,10 +30,6 @@ let instructionImageSlider = new Swiper('.instruction__image-slider', {
     el: '.swiper-pagination',
     clickable: true,
   },
-  /* effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  }, */
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -118,20 +37,89 @@ let instructionImageSlider = new Swiper('.instruction__image-slider', {
   thumbs: {
     swiper: instructionInfo,
   }
-}); 
+});
 
+
+let addOnsSlider = new Swiper('.add-ons__tab-slider', {
+  
+  spaceBetween: 15,
+  slidesPerView: 1,
+
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+
+  
+});
+
+let addOnsTabSlider;
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
-/* 
+
+let thisTarget, checkTabActive = false;
+body.addEventListener('click', function (event) {
+
+    thisTarget = event.target;
+
+    let slideBtn = thisTarget.closest('._slide-btn');
+    if(slideBtn) {
+      addOnsSlider.slideTo(Number(slideBtn.dataset.slideTo), 0)
+    }
+    
+
+})
+
+
+
+
+
+
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
 
-wow = new WOW({
-mobile:       false,
-})
-wow.init();
+let resizeCheck = {}, windowSize;
+
+function resizeCheckFunc(size, minWidth, maxWidth) {
+  if (windowSize <= size && (resizeCheck[String(size)] == true || resizeCheck[String(size)] == undefined) && resizeCheck[String(size)] != false) {
+    resizeCheck[String(size)] = false;
+    maxWidth(); // < size
+  }
+
+  if (windowSize >= size && (resizeCheck[String(size)] == false || resizeCheck[String(size)] == undefined) && resizeCheck[String(size)] != true) {
+    resizeCheck[String(size)] = true;
+    minWidth(); // > size
+  }
+}
+
+function resize() {
+
+  windowSize = window.innerWidth
+
+  resizeCheckFunc(768,
+    function () {  // screen > 768
+
+      if(addOnsTabSlider) addOnsTabSlider.destroy(true, true);
+
+  },
+  function () {  // screen < 768
+
+    addOnsTabSlider = new Swiper('.add-ons__tab-section--body', {
+  
+      spaceBetween: 15,
+      slidesPerView: 1,
+      
+    
+    });
+
+  });
+
+}
+
+resize();
+
+window.onresize = resize;
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
-
-*/

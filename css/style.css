@@ -1310,6 +1310,22 @@ button.swiper-pagination-bullet {
   --container-padding: 15px;
 }
 
+/* @font-face {
+    font-family: 'Wotfard';
+    src: url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.eot#iefix') format('embedded-opentype'), 
+         url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.woff2') format('woff'), 
+         url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Wotfard';
+    src: url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.eot#iefix') format('embedded-opentype'), 
+         url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.woff2') format('woff'), 
+         url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.ttf') format('truetype');
+    font-weight: 600;
+} */
+
 @font-face {
   font-weight: 400;
   font-family: "Inter";
@@ -1334,21 +1350,14 @@ button.swiper-pagination-bullet {
   src: url("Inter-ExtraBold.woff") format("woff"), url("Inter-ExtraBold.woff") format("woff2");
 }
 
-@font-face {
-  font-weight: 400;
-  font-family: "Wotfard";
-  font-display: swap;
-  font-style: normal;
-  src: url("Wotfard-Regular.woff") format("woff"), url("Wotfard-Regular.woff") format("woff2");
+/* @font-face {
+    @include font-include('Wotfard', 400, swap, normal, 'Wotfard-Regular');
 }
 
 @font-face {
-  font-weight: 600;
-  font-family: "Wotfard";
-  font-display: swap;
-  font-style: normal;
-  src: url("Wotfard-SemiBold.woff") format("woff"), url("Wotfard-SemiBold.woff") format("woff2");
+    @include font-include('Wotfard', 600, swap, normal, 'Wotfard-SemiBold');
 }
+ */
 
 html,
 body {
@@ -1757,9 +1766,13 @@ body._popup-active {
 
 .add-ons__tab-section {
   padding-top: 33px;
-  overflow-x: auto;
+}
+
+.add-ons__tab-section--body {
   position: relative;
   z-index: 2;
+  margin: 0;
+  padding: 0 15vw;
 }
 
 .add-ons__tab-list {
@@ -1769,53 +1782,36 @@ body._popup-active {
 }
 
 .add-ons__tab-item {
+  /* width: 100%;
+  flex: 1 1 100%; */
   margin-right: 13px;
   margin-top: 13px;
 }
 
-.add-ons__tab-link {
+.add-ons__tab-btn {
   display: inline-block;
+  width: 100%;
   color: var(--text-dark);
   font-family: "Wotfard";
   font-weight: 600;
   text-align: center;
   white-space: nowrap;
-  padding: 7px 20px;
+  padding: 13px 20px;
   border-radius: 100px;
   font-size: 0.875rem;
   border: 1px solid var(--accent);
   background-color: var(--white);
   -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  /* &._active {
+      color: var(--white);
+      background-color: var(--accent);
+  } */
 }
 
-.add-ons__tab-link:hover {
+.add-ons__tab-btn:hover {
   background-color: var(--accent);
   color: var(--white);
-}
-
-.add-ons__tab-link._active {
-  color: var(--white);
-  background-color: var(--accent);
-}
-
-.add-ons__tab-block {
-  display: none;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.add-ons__tab-block._active {
-  display: block;
-}
-
-.add-ons__tab-block._fade-in {
-  opacity: 1;
-}
-
-.add-ons__tab-block._fade-out {
-  opacity: 0;
 }
 
 .add-ons__tab-block--body {
@@ -1854,12 +1850,42 @@ body._popup-active {
   display: inline-block;
   margin-top: 20px;
   font-weight: 600;
-  color: var(--text-dark);
+  font-size: 1.375rem;
+  -webkit-font-feature-settings: "salt" on, "liga" off;
+          font-feature-settings: "salt" on, "liga" off;
+  color: #121936;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
 }
 
-.add-ons__info--link img {
-  margin-left: 23px;
-  width: 27px;
+.add-ons__info--link:hover {
+  color: var(--accent);
+}
+
+.add-ons__info--link:hover svg {
+  margin-left: 30px;
+}
+
+.add-ons__info--link:hover svg path {
+  fill: var(--accent);
+}
+
+.add-ons__info--link svg {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  margin-left: 20px;
+}
+
+.add-ons__info--link svg path {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .add-ons__image {
@@ -1905,6 +1931,12 @@ body._popup-active {
   }
 }
 
+@media (min-width: 500px) {
+  .add-ons__tab-section--body {
+    padding: 0 30vw;
+  }
+}
+
 @media (min-width: 768px) {
   ._main-title {
     font-size: 2.5rem;
@@ -1920,6 +1952,24 @@ body._popup-active {
 
   ._section-title._min {
     font-size: 2rem;
+  }
+
+  .add-ons__tab-section--body {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .add-ons__tab-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    width: auto;
+  }
+
+  .add-ons__tab-btn {
+    width: auto;
   }
 }
 
@@ -2033,6 +2083,9 @@ body._popup-active {
 
   .add-ons__tab-section {
     padding-top: 53px;
+  }
+
+  .add-ons__tab-section--body {
     max-width: 55%;
   }
 
