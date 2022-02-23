@@ -1350,14 +1350,21 @@ button.swiper-pagination-bullet {
   src: url("Inter-ExtraBold.woff") format("woff"), url("Inter-ExtraBold.woff") format("woff2");
 }
 
-/* @font-face {
-    @include font-include('Wotfard', 400, swap, normal, 'Wotfard-Regular');
+@font-face {
+  font-weight: 400;
+  font-family: "Wotfard";
+  font-display: swap;
+  font-style: normal;
+  src: url("Wotfard-Regular.woff") format("woff"), url("Wotfard-Regular.woff") format("woff2");
 }
 
 @font-face {
-    @include font-include('Wotfard', 600, swap, normal, 'Wotfard-SemiBold');
+  font-weight: 600;
+  font-family: "Wotfard";
+  font-display: swap;
+  font-style: normal;
+  src: url("Wotfard-SemiBold.woff") format("woff"), url("Wotfard-SemiBold.woff") format("woff2");
 }
- */
 
 html,
 body {
@@ -1961,29 +1968,6 @@ body._popup-active {
   ._section-title._min {
     font-size: 2rem;
   }
-
-  .add-ons__tab-section--body {
-    max-width: 100%;
-    width: 100%;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  .add-ons__tab-item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-    width: auto;
-  }
-
-  .add-ons__tab-btn {
-    width: auto;
-  }
-
-  .add-ons__tab-btn._active {
-    color: var(--white);
-    background-color: var(--accent);
-  }
 }
 
 @media (min-width: 992px) {
@@ -2099,12 +2083,32 @@ body._popup-active {
   }
 
   .add-ons__tab-section--body {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
     max-width: 55%;
   }
 
   .add-ons__tab-list {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+
+  .add-ons__tab-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    width: auto;
+  }
+
+  .add-ons__tab-btn {
+    width: auto;
+  }
+
+  .add-ons__tab-btn._active {
+    color: var(--white);
+    background-color: var(--accent);
   }
 
   .add-ons__tab-block--image {

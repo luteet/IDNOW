@@ -45,12 +45,8 @@ let addOnsSlider = new Swiper('.add-ons__tab-slider', {
   spaceBetween: 15,
   slidesPerView: 1,
 
-  /* effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  }, */
   breakpoints: {
-    768: {
+    992: {
       allowTouchMove: false,
     }
   }
@@ -88,7 +84,7 @@ body.addEventListener('click', function (event) {
 
 
 
-// =-=-=-=-=-=-=-=-=-=-=-=- <Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
+// =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let resizeCheck = {}, windowSize;
 
@@ -108,23 +104,28 @@ function resize() {
 
   windowSize = window.innerWidth
 
-  resizeCheckFunc(768,
-    function () {  // screen > 768
+  resizeCheckFunc(992,
+    function () {  // screen > 992
 
       if(addOnsTabSlider) addOnsTabSlider.destroy(true, true);
       addOnsSlider.controller.control = addOnsSlider;
 
+      document.querySelectorAll('._slide-btn._active').forEach(thisElement => {
+        thisElement.classList.remove('_active');
+      })
+
+      document.querySelectorAll('._slide-btn').forEach(thisElement => {
+        thisElement.parentNode.parentNode.querySelectorAll('._slide-btn')[0].classList.add('_active');
+      })
+
   },
-  function () {  // screen < 768
+  function () {  // screen < 992
 
     addOnsTabSlider = new Swiper('.add-ons__tab-section--body', {
   
       spaceBetween: 15,
       slidesPerView: "auto",
       
-      /* thumbs: {
-        swiper: addOnsSlider,
-      } */
     });
 
     addOnsSlider.controller.control = addOnsTabSlider;
@@ -138,4 +139,4 @@ resize();
 
 window.onresize = resize;
 
-// =-=-=-=-=-=-=-=-=-=-=-=- </Анимации> -=-=-=-=-=-=-=-=-=-=-=-=
+// =-=-=-=-=-=-=-=-=-=-=-=- </resize> -=-=-=-=-=-=-=-=-=-=-=-=
