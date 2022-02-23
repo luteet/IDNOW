@@ -1310,21 +1310,17 @@ button.swiper-pagination-bullet {
   --container-padding: 15px;
 }
 
-/* @font-face {
-    font-family: 'Wotfard';
-    src: url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.eot#iefix') format('embedded-opentype'), 
-         url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.woff2') format('woff'), 
-         url('https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.ttf') format('truetype');
-    font-weight: 400;
+@font-face {
+  font-family: "Wotfard";
+  src: url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.eot#iefix") format("embedded-opentype"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.woff2") format("woff"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.ttf") format("truetype");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Wotfard';
-    src: url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.eot#iefix') format('embedded-opentype'), 
-         url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.woff2') format('woff'), 
-         url('https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.ttf') format('truetype');
-    font-weight: 600;
-} */
+  font-family: "Wotfard";
+  src: url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.eot#iefix") format("embedded-opentype"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.woff2") format("woff"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.ttf") format("truetype");
+  font-weight: 600;
+}
 
 @font-face {
   font-weight: 400;
@@ -1350,21 +1346,13 @@ button.swiper-pagination-bullet {
   src: url("Inter-ExtraBold.woff") format("woff"), url("Inter-ExtraBold.woff") format("woff2");
 }
 
-@font-face {
-  font-weight: 400;
-  font-family: "Wotfard";
-  font-display: swap;
-  font-style: normal;
-  src: url("Wotfard-Regular.woff") format("woff"), url("Wotfard-Regular.woff") format("woff2");
+/* @font-face {
+    @include font-include('Wotfard', 400, swap, normal, 'Wotfard-Regular');
 }
 
 @font-face {
-  font-weight: 600;
-  font-family: "Wotfard";
-  font-display: swap;
-  font-style: normal;
-  src: url("Wotfard-SemiBold.woff") format("woff"), url("Wotfard-SemiBold.woff") format("woff2");
-}
+    @include font-include('Wotfard', 600, swap, normal, 'Wotfard-SemiBold');
+} */
 
 html,
 body {
