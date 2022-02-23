@@ -107,16 +107,17 @@ function resize() {
   resizeCheckFunc(992,
     function () {  // screen > 992
 
-      if(addOnsTabSlider) addOnsTabSlider.destroy(true, true);
-      addOnsSlider.controller.control = addOnsSlider;
-
       document.querySelectorAll('._slide-btn._active').forEach(thisElement => {
         thisElement.classList.remove('_active');
       })
 
-      document.querySelectorAll('._slide-btn').forEach(thisElement => {
-        thisElement.parentNode.parentNode.querySelectorAll('._slide-btn')[0].classList.add('_active');
+      document.querySelectorAll('._slide-btn-wrapper.swiper-slide-active').forEach(thisElement => {
+        thisElement.classList.remove('_active');
+        thisElement.querySelector('._slide-btn').classList.add('_active');
       })
+
+      if(addOnsTabSlider) addOnsTabSlider.destroy(true, true);
+      addOnsSlider.controller.control = addOnsSlider;
 
   },
   function () {  // screen < 992
