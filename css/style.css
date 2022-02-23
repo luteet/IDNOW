@@ -1312,39 +1312,45 @@ button.swiper-pagination-bullet {
 
 @font-face {
   font-family: "Wotfard";
-  src: url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.eot#iefix") format("embedded-opentype"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.woff2") format("woff"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-regular-webfont.ttf") format("truetype");
+  src: url("https://luteet.github.io/IDNOW/css/Wotfard-Regular.woff") format("woff"), url("https://luteet.github.io/IDNOW/css/Wotfard-Regular.woff2") format("woff2"), url("https://luteet.github.io/IDNOW/css/Wotfard-Regular.ttf") format("ttf");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Wotfard";
-  src: url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.eot#iefix") format("embedded-opentype"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.woff2") format("woff"), url("https://idnow.websolutions.pp.ua/fonts/wotfard-semibold-webfont.ttf") format("truetype");
+  src: url("https://luteet.github.io/IDNOW/css/Wotfard-SemiBold.woff") format("woff"), url("https://luteet.github.io/IDNOW/css/Wotfard-SemiBold.woff2") format("woff2"), url("https://luteet.github.io/IDNOW/css/Wotfard-SemiBold.ttf") format("ttf");
   font-weight: 600;
 }
 
 @font-face {
+  font-family: "Inter";
+  src: url("https://luteet.github.io/IDNOW/css/Inter-Regular.woff") format("woff"), url("https://luteet.github.io/IDNOW/css/Inter-Regular.woff2") format("woff2"), url("https://luteet.github.io/IDNOW/css/Inter-Regular.ttf") format("ttf");
   font-weight: 400;
-  font-family: "Inter";
-  font-display: swap;
-  font-style: normal;
-  src: url("Inter-Regular.woff") format("woff"), url("Inter-Regular.woff") format("woff2");
 }
 
 @font-face {
+  font-family: "Inter";
+  src: url("https://luteet.github.io/IDNOW/css/Inter-Bold.woff") format("woff"), url("https://luteet.github.io/IDNOW/css/Inter-Bold.woff2") format("woff2"), url("https://luteet.github.io/IDNOW/css/Inter-Bold.ttf") format("ttf");
   font-weight: 700;
-  font-family: "Inter";
-  font-display: swap;
-  font-style: normal;
-  src: url("Inter-Bold.woff") format("woff"), url("Inter-Bold.woff") format("woff2");
 }
 
 @font-face {
-  font-weight: 800;
   font-family: "Inter";
-  font-display: swap;
-  font-style: normal;
-  src: url("Inter-ExtraBold.woff") format("woff"), url("Inter-ExtraBold.woff") format("woff2");
+  src: url("https://luteet.github.io/IDNOW/css/Inter-ExtraBold.woff") format("woff"), url("https://luteet.github.io/IDNOW/css/Inter-ExtraBold.woff2") format("woff2"), url("https://luteet.github.io/IDNOW/css/Inter-ExtraBold.ttf") format("ttf");
+  font-weight: 700;
 }
+
+/* @font-face {
+    @include font-include('Inter', 400, swap, normal, 'Inter-Regular');
+}
+
+@font-face {
+    @include font-include('Inter', 700, swap, normal, 'Inter-Bold');
+}
+
+@font-face {
+    @include font-include('Inter', 800, swap, normal, 'Inter-ExtraBold');
+} */
 
 /* @font-face {
     @include font-include('Wotfard', 400, swap, normal, 'Wotfard-Regular');
